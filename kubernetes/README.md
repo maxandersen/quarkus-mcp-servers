@@ -17,7 +17,7 @@ For now this server uses your already configured Kubernetes configuration. Thus 
 
 ## Claude Desktop Config and [mcp-cli](https://github.com/chrishayuk/mcp-cli) <a id="claude-desktop-config"/>
 
-Add this to your `claude_desktop.json` or `server_config.json` file:
+Add this to your `claude_desktop_config.json` or `server_config.json` file:
 
 ```json
 {
@@ -58,3 +58,37 @@ Example for MacOS arm64 (M1, M2, etc.):
 ```
 
 You can of course also rename the executable to something else, like `mcp-server-kubernetes` if you want.
+
+## How to build/test
+
+```bash
+mvn clean install
+```
+
+There are profiles to add right JDBC driver to the build for easy testing.
+
+i.e. `h2`, `postgresql`, `sqlite` etc.
+
+Examples:
+
+h2 on an empty in-memory database:
+
+```bash
+mvn quarkus:dev -Dh2
+```
+
+postgresql with a pre-configured database running in a container:
+
+```bash
+podman run -p 5432:5432 -d sakiladb/postgres:latest
+mvn quarkus:dev -Dpostgresql
+```
+
+sqlite with a pre-configured database running in a container
+using `./test.db` as the database file:
+
+```bash
+mvn quarkus:dev -Dsqlite -Djdbc.url=jdbc:sqlite:./test.db
+```
+
+
