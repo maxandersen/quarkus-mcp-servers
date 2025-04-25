@@ -5,6 +5,10 @@
       "script-ref": "io.quarkiverse.mcp.servers:mcp-server-filesystem:RELEASE@fatjar",
       "java": "17+"
     },
+    "github" : {
+      "script-ref": "io.quarkiverse.mcp.servers:mcp-server-github:RELEASE@fatjar",
+      "java": "17+"
+    },
     "jdbc": {
       "script-ref": "jdbc/.scripts/mcpjdbc.java",
       "java": "17+"

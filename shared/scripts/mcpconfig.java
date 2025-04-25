@@ -69,6 +69,7 @@ public class mcpconfig implements Runnable {
                 server("kubernetes"),
                 server("jdbc", "jdbc:sqlite:%{https://github.com/jpwhite3/northwind-SQLite3/raw/refs/heads/main/dist/northwind.db}"),
                 server("jfx"),
+                server("github"),
                 server("filesystem", "~/code/quarkusio/quarkus", "~/code/jbangdev/jbang")
             ));
                 
